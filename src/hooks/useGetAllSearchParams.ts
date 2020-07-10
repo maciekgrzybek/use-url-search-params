@@ -6,11 +6,9 @@ export const useGetAllSearchParams = (
 ): object | string[] => {
   if (options?.keysOnly) {
     return Array.from(new URLSearchParams(search).keys());
-  }
-  else if (options?.valuesOnly) {
+  } else if (options?.valuesOnly) {
     return Array.from(new URLSearchParams(search).values());
-  }
-  else {
+  } else {
     const entries: string[][] = Array.from(
       new URLSearchParams(search).entries()
     );

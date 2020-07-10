@@ -1,5 +1,5 @@
 {
-  "name": "use-urlsearchparams",
+  "name": "use-url-search-params",
   "version": "1.0.0",
   "description": "React hook to use URLSearchParams browser API",
   "main": "build/index.js",
