@@ -1,10 +1,13 @@
-import { ArrayOptions } from '../types';
+import { ArrayOptions } from './types';
 
-export const useStringifySearchParams = (
-  params: object,
-  config?: ArrayOptions
-): string => {
-  const startingParams = new URLSearchParams('');
+interface Options {
+  search?: string;
+  params: object;
+  config?: ArrayOptions;
+}
+
+export const amendSearchParams = ({ search, params, config }: Options): string => {
+  const startingParams = new URLSearchParams(search || '');
   for (let index in params) {
     if (Array.isArray(params[index])) {
       switch (config?.arrayType) {
@@ -29,8 +32,7 @@ export const useStringifySearchParams = (
             startingParams.append(index, element);
           });
       }
-    }
-    else {
+    } else {
       startingParams.append(index, params[index]);
     }
   }

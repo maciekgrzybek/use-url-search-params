@@ -1,8 +1,7 @@
 import { ArrayOptions } from '../types';
 import { amendSearchParams } from '../shared';
 
-export const useAppendSearchParam = (
-  search: string,
+export const useStringifySearchParam = (
   params: object,
   config?: ArrayOptions
-): string => amendSearchParams({ search, params, config });
+): string => amendSearchParams({ params, config });

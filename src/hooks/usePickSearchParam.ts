@@ -1,4 +1,4 @@
-export const usePickSearchParams = (
+export const usePickSearchParam = (
   search: string,
   keys: string | string[]
 ): string => {
@@ -10,8 +10,7 @@ export const usePickSearchParams = (
       if (!keys.includes(entry[0])) {
         startingParams.delete(entry[0]);
       }
-    }
-    else {
+    } else {
       if (keys !== entry[0]) {
         startingParams.delete(entry[0]);
       }
