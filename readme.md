@@ -18,13 +18,13 @@ Simple collection of hooks to manipulate the URL search params. This package use
 Just import a hook that you want to use.
 
 ```javascript
-export { useAppendSearchParam } from 'use-url-search-params';
-export { useExcludeSearchParam } from 'use-url-search-params';
-export { useGetAllSearchParams } from 'use-url-search-params';
-export { useGetSearchParam } from 'use-url-search-params';
-export { useHasSearchParam } from 'use-url-search-params';
-export { usePickSearchParam } from 'use-url-search-params';
-export { useStringifySearchParam } from 'use-url-search-params';
+export { useAppendSearchParam } from 'use-url-search-params-hooks';
+export { useExcludeSearchParam } from 'use-url-search-params-hooks';
+export { useGetAllSearchParams } from 'use-url-search-params-hooks';
+export { useGetSearchParam } from 'use-url-search-params-hooks';
+export { useHasSearchParam } from 'use-url-search-params-hooks';
+export { usePickSearchParam } from 'use-url-search-params-hooks';
+export { useStringifySearchParam } from 'use-url-search-params-hooks';
 ```
 
 ## Usage
