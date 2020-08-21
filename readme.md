@@ -87,6 +87,33 @@ useAppendSearchParam('?topic=api', {
   level: 'junior',
 });
 // Returns `topic=api&technology=nodejs&level=junior`
+useAppendSearchParam(
+  '?topic=api',
+  { technology: ['javascript', 'nodejs', 'react'] },
+  { arrayType: 'separator', separator: '|' }
+);
+// Returns `topic=api&technology=api|nodejs|react`
+
+useAppendSearchParam(
+  '?topic=api',
+  { technology: ['javascript', 'nodejs', 'react'] },
+  { arrayType: 'separator', separator: ',' }
+);
+// Returns `topic=api&technology=api,nodejs,react`
+
+useAppendSearchParam(
+  '?topic=api',
+  { technology: ['javascript', 'nodejs', 'react'] },
+  { arrayType: 'bracket' }
+);
+// Returns `topic=api&technology[]=api&technology[]=nodejs&technology[]=react`
+
+useAppendSearchParam(
+  '?topic=api',
+  { technology: ['javascript', 'nodejs', 'react'] },
+  { arrayType: 'indexedBracket' }
+);
+// Returns `topic=api&technology[0]=api&technology[1]=nodejs&technology[2]=react`
 ```
 
 | Name   | Type     | Description                                         | Required |
@@ -205,6 +232,10 @@ useStringifySearchParam(
   - with React Router -> `this.props.location.search` or `props.location.search`
   - with Reach Router -> `import { useLocation } from "@reach/router"` and then `const { search } = useLocation()`
 - notice that hooks that returns the search string, will return it without the question mark i.e. `topic=api&technology=nodejs`, it's because assigning new string to `location.search` will add it automatically `location.search = topic=api&technology=nodejs -> ?topic=api&technology=nodejs`
+
+## Browser support
+
+- all major desktop and mobile browsers apart from Internet Explorer (there's no plan for supporting it)
 
 ## License
 
