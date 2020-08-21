@@ -15,7 +15,17 @@ Simple collection of hooks to manipulate the URL search params. This package use
 
 ## Installation
 
-Just import a hook that you want to use.
+Just install the package and import a hook that you want to use.
+
+```shell
+npm i use-url-search-params-hooks
+```
+
+or
+
+```shell
+yarn add use-url-search-params-hooks
+```
 
 ```javascript
 export { useAppendSearchParam } from 'use-url-search-params-hooks';
