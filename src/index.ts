@@ -12,3 +12,4 @@ export { useStringifySearchParam } from './hooks/useStringifySearchParam';
 // 3. Handle DecodeURI and EncodeURI, maybe config options?
 // 4. Sort values ?
 // 5. In stringify skipNull, skipEmpty etc
+// 6. Get url from browser
