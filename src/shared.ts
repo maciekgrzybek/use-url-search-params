@@ -1,12 +1,14 @@
-import { ArrayOptions } from './types';
+import { AmendOptions } from './types';
 
-interface Options {
-  search?: string;
-  params: object;
-  config?: ArrayOptions;
-}
+const isNumeric = (n: any): boolean => !isNaN(parseFloat(n)) && isFinite(n);
 
-export const amendSearchParams = ({ search, params, config }: Options): string => {
+export const parseToNumber = (n: any): any => (isNumeric(n) ? Number(n) : n);
+
+export const amendSearchParams = ({
+  search,
+  params,
+  config,
+}: AmendOptions): string => {
   const startingParams = new URLSearchParams(search || '');
   for (let index in params) {
     if (Array.isArray(params[index])) {
