@@ -2,6 +2,6 @@ import { ArrayOptions } from '../types';
 import { amendSearchParams } from '../shared';
 
 export const useStringifySearchParam = (
-  params: object,
+  params: Record<string, any>,
   config?: ArrayOptions
 ): string => amendSearchParams({ params, config });

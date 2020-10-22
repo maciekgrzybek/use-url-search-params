@@ -2,7 +2,7 @@ export interface GetOptions {
   parseNumbers?: boolean;
 }
 
-export interface GetAllOptions {
+export interface GetAllOptions extends GetOptions {
   keysOnly?: boolean;
   valuesOnly?: boolean;
 }
@@ -14,6 +14,6 @@ export interface ArrayOptions {
 
 export interface AmendOptions {
   search?: string;
-  params: object;
+  params: Record<string, any>;
   config?: ArrayOptions;
 }

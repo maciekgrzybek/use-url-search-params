@@ -49,12 +49,16 @@ useGetSearchParam('?topic=api', 'topic'); // Returns 'api'
 
 // With multiple params in the search
 useGetSearchParam('?topic=api&topic=not-an-api', 'topic'); // Returns ['api', 'not-an-api']
+
+// Parse params to numbers when possible
+useGetSearchParam('?topic=api&amount=121', 'amount', { parseNumbers: true }); // Returns 121
 ```
 
-| Name     | Type     | Description                | Required |
-| -------- | -------- | -------------------------- | -------- |
-| search   | `string` | Search params from the URL | `true`   |
-| paramKey | `string` | Name of the param to get   | `true`   |
+| Name                 | Type      | Description                      | Required |
+| -------------------- | --------- | -------------------------------- | -------- |
+| search               | `string`  | Search params from the URL       | `true`   |
+| paramKey             | `string`  | Name of the param to get         | `true`   |
+| options.parseNumbers | `boolean` | Parse to number type if possible | `false`  |
 
 ### `useGetAllSearchParams`
 
@@ -69,6 +73,16 @@ useGetAllSearchParams('?topic=api&technology=nodejs&level=junior');
 //  level: 'junior'
 // }
 
+// Parse params to numbers when possible
+useGetAllSearchParams('?topic=api&technology=nodejs&amount=121', {
+  parseNumbers: true,
+});
+// Returns {
+//  topic: 'api',
+//  technology: 'nodejs',
+//  amount: 121
+// }
+
 // Get just an array of keys
 useGetAllSearchParams('?topic=api&technology=nodejs&level=junior', {
   keysOnly: true,
@@ -78,13 +92,20 @@ useGetAllSearchParams('?topic=api&technology=nodejs&level=junior', {
 useGetAllSearchParams('?topic=api&technology=nodejs&level=junior', {
   valuesOnly: true,
 }); // Returns ['api', 'nodejs', 'junior']
+
+// Parse params to numbers when possible
+useGetAllSearchParams('?topic=api&technology=nodejs&amount=121', {
+  valuesOnly: true,
+  parseNumbers: true,
+}); // Returns ['api', 'nodejs', 121]
 ```
 
-| Name               | Type      | Description                                     | Required |
-| ------------------ | --------- | ----------------------------------------------- | -------- |
-| search             | `string`  | Search params from the URL                      | `true`   |
-| options.keysOnly   | `boolean` | If set to true, returns only an array of keys   | `false`  |
-| options.valuesOnly | `boolean` | If set to true, returns only an array of values | `false`  |
+| Name                 | Type      | Description                                     | Required |
+| -------------------- | --------- | ----------------------------------------------- | -------- |
+| search               | `string`  | Search params from the URL                      | `true`   |
+| options.keysOnly     | `boolean` | If set to true, returns only an array of keys   | `false`  |
+| options.valuesOnly   | `boolean` | If set to true, returns only an array of values | `false`  |
+| options.parseNumbers | `boolean` | Parse to number type if possible                | `false`  |
 
 ### `useAppendSearchParam`
 
