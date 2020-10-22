@@ -28,13 +28,13 @@ yarn add use-url-search-params-hooks
 ```
 
 ```javascript
-export { useAppendSearchParam } from 'use-url-search-params-hooks';
-export { useExcludeSearchParam } from 'use-url-search-params-hooks';
-export { useGetAllSearchParams } from 'use-url-search-params-hooks';
-export { useGetSearchParam } from 'use-url-search-params-hooks';
-export { useHasSearchParam } from 'use-url-search-params-hooks';
-export { usePickSearchParam } from 'use-url-search-params-hooks';
-export { useStringifySearchParam } from 'use-url-search-params-hooks';
+import { useAppendSearchParam } from 'use-url-search-params-hooks';
+import { useExcludeSearchParam } from 'use-url-search-params-hooks';
+import { useGetAllSearchParams } from 'use-url-search-params-hooks';
+import { useGetSearchParam } from 'use-url-search-params-hooks';
+import { useHasSearchParam } from 'use-url-search-params-hooks';
+import { usePickSearchParam } from 'use-url-search-params-hooks';
+import { useStringifySearchParam } from 'use-url-search-params-hooks';
 ```
 
 ## Usage
@@ -148,10 +148,10 @@ useExcludeSearchParam('?topic=api&technology=nodejs&level=junior', [
 // Returns `level=junior`
 ```
 
-| Name   | Type                     | Description                            | Required |
-| ------ | ------------------------ | -------------------------------------- | -------- |
-| search | `string`                 | Search params from the URL             | `true`   |
-| params | `string | array<string>` | Param or array of params to be removed | `true`   |
+| Name   | Type     | Description                | Required                               |
+| ------ | -------- | -------------------------- | -------------------------------------- |
+| search | `string` | Search params from the URL | `true`                                 |
+| params | `string  | array<string>`             | Param or array of params to be removed | `true` |
 
 ### `useHasSearchParam`
 
@@ -187,10 +187,10 @@ usePickSearchParam('?topic=api&technology=nodejs&level=junior', [
 // Returns `topic=api&level=junior`
 ```
 
-| Name   | Type                     | Description                        | Required |
-| ------ | ------------------------ | ---------------------------------- | -------- |
-| search | `string`                 | Search params from the URL         | `true`   |
-| params | `string | array<string>` | Param or array of params to remain | `true`   |
+| Name   | Type     | Description                | Required                           |
+| ------ | -------- | -------------------------- | ---------------------------------- |
+| search | `string` | Search params from the URL | `true`                             |
+| params | `string  | array<string>`             | Param or array of params to remain | `true` |
 
 ### `useStringifySearchParam`
 
@@ -229,11 +229,11 @@ useStringifySearchParam(
 // Returns `topic[0]=api&topic[1]=nodejs&topic[2]=react`
 ```
 
-| Name              | Type                                         | Description                                                                                                      | Required |
-| ----------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- |
-| params            | `object<string, string|array>`               | Object with params to stringify                                                                                  | `true`   |
-| options.arrayType | `'separator' | 'bracket' | 'indexedBracket'` | Defines how array should be parsed                                                                               | `false`  |
-| options.separator | `string`                                     | Defines what kind of separator will be used in array. Use with care as not all characters will work with the URL | `false`  |
+| Name              | Type                   | Description                                                                                                      | Required                        |
+| ----------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| params            | `object<string, string | array>`                                                                                                          | Object with params to stringify | `true` |
+| options.arrayType | `'separator'           | 'bracket'                                                                                                        | 'indexedBracket'`               | Defines how array should be parsed | `false` |
+| options.separator | `string`               | Defines what kind of separator will be used in array. Use with care as not all characters will work with the URL | `false`                         |
 
 ## Tips
 
