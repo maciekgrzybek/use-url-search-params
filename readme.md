@@ -52,13 +52,17 @@ useGetSearchParam('?topic=api&topic=not-an-api', 'topic'); // Returns ['api', 'n
 
 // Parse params to numbers when possible
 useGetSearchParam('?topic=api&amount=121', 'amount', { parseNumbers: true }); // Returns 121
+
+// Parse params to booleans when possible
+useGetSearchParam('?topic=api&isValid=true', 'amount', { parseBooleans: true }); // Returns true
 ```
 
-| Name                 | Type      | Description                      | Required |
-| -------------------- | --------- | -------------------------------- | -------- |
-| search               | `string`  | Search params from the URL       | `true`   |
-| paramKey             | `string`  | Name of the param to get         | `true`   |
-| options.parseNumbers | `boolean` | Parse to number type if possible | `false`  |
+| Name                  | Type      | Description                       | Required |
+| --------------------- | --------- | --------------------------------- | -------- |
+| search                | `string`  | Search params from the URL        | `true`   |
+| paramKey              | `string`  | Name of the param to get          | `true`   |
+| options.parseNumbers  | `boolean` | Parse to number type if possible  | `false`  |
+| options.parseBooleans | `boolean` | Parse to boolean type if possible | `false`  |
 
 ### `useGetAllSearchParams`
 
@@ -73,14 +77,16 @@ useGetAllSearchParams('?topic=api&technology=nodejs&level=junior');
 //  level: 'junior'
 // }
 
-// Parse params to numbers when possible
-useGetAllSearchParams('?topic=api&technology=nodejs&amount=121', {
+// Parse params to numbers and booleans when possible
+useGetAllSearchParams('?topic=api&technology=nodejs&amount=121&isValid=true', {
   parseNumbers: true,
+  parseBooleans: true,
 });
 // Returns {
 //  topic: 'api',
 //  technology: 'nodejs',
-//  amount: 121
+//  amount: 121,
+//  isValid: true
 // }
 
 // Get just an array of keys
@@ -93,19 +99,21 @@ useGetAllSearchParams('?topic=api&technology=nodejs&level=junior', {
   valuesOnly: true,
 }); // Returns ['api', 'nodejs', 'junior']
 
-// Parse params to numbers when possible
-useGetAllSearchParams('?topic=api&technology=nodejs&amount=121', {
+// Parse params to numbers and booleans when possible
+useGetAllSearchParams('?topic=api&technology=nodejs&amount=121&isValid=true', {
   valuesOnly: true,
   parseNumbers: true,
-}); // Returns ['api', 'nodejs', 121]
+  parseBooleans: true,
+}); // Returns ['api', 'nodejs', 121, true]
 ```
 
-| Name                 | Type      | Description                                     | Required |
-| -------------------- | --------- | ----------------------------------------------- | -------- |
-| search               | `string`  | Search params from the URL                      | `true`   |
-| options.keysOnly     | `boolean` | If set to true, returns only an array of keys   | `false`  |
-| options.valuesOnly   | `boolean` | If set to true, returns only an array of values | `false`  |
-| options.parseNumbers | `boolean` | Parse to number type if possible                | `false`  |
+| Name                  | Type      | Description                                     | Required |
+| --------------------- | --------- | ----------------------------------------------- | -------- |
+| search                | `string`  | Search params from the URL                      | `true`   |
+| options.keysOnly      | `boolean` | If set to true, returns only an array of keys   | `false`  |
+| options.valuesOnly    | `boolean` | If set to true, returns only an array of values | `false`  |
+| options.parseNumbers  | `boolean` | Parse to number type if possible                | `false`  |
+| options.parseBooleans | `boolean` | Parse to booleans type if possible              | `false`  |
 
 ### `useAppendSearchParam`
 

@@ -7,8 +7,8 @@ export { usePickSearchParam } from './hooks/usePickSearchParam';
 export { useStringifySearchParam } from './hooks/useStringifySearchParam';
 
 // RoadMap TODO:
-// 1. Config to enable parsing value to number ---- update docs
-// 2. Config to enable parsing value to boolean
+// 1. Config to enable parsing value to number ---- update docs --- DONE!
+// 2. Config to enable parsing value to boolean ---- update docs --- DONE!
 // 3. Handle DecodeURI and EncodeURI, maybe config options?
 // 4. Sort values ?
 // 5. In stringify skipNull, skipEmpty etc
