@@ -7,7 +7,8 @@
   "jsnext:main": "build/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest --watchAll"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "author": "Maciek Grzybek",
   "license": "ISC",
