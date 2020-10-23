@@ -1,8 +1,21 @@
-import { AmendOptions } from './types';
+import { AmendOptions, GetOptions } from './types';
 
-const isNumeric = (n: any): boolean => !isNaN(parseFloat(n)) && isFinite(n);
+export const isNumeric = (n: any): boolean =>
+  !isNaN(parseFloat(n)) && isFinite(n);
+export const isBoolean = (n: any): boolean => n === 'true' || n === 'false';
 
-export const parseToNumber = (n: any): any => (isNumeric(n) ? Number(n) : n);
+// export const parseToNumber = (n: any): any => (isNumeric(n) ? Number(n) : n);
+// export const parseToBoolean = (n: any): any => (isBoolean(n) ? Boolean(n) : n);
+
+export const parseValue = (param: any, options?: GetOptions) => {
+  if (options?.parseNumbers && isNumeric(param)) {
+    return Number(param);
+  }
+  if (options?.parseBooleans && isBoolean(param)) {
+    return param === 'true';
+  }
+  return param;
+};
 
 export const amendSearchParams = ({
   search,

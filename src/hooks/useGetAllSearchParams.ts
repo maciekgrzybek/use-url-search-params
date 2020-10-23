@@ -1,4 +1,4 @@
-import { parseToNumber } from '../shared';
+import { parseValue } from '../shared';
 import { GetAllOptions } from '../types';
 
 export const useGetAllSearchParams = (
@@ -8,19 +8,16 @@ export const useGetAllSearchParams = (
   if (options?.keysOnly) {
     return Array.from(new URLSearchParams(search).keys());
   } else if (options?.valuesOnly) {
-    const valuesArray = Array.from(new URLSearchParams(search).values());
-    return options?.parseNumbers
-      ? valuesArray.map((item) => parseToNumber(item))
-      : valuesArray;
+    return Array.from(new URLSearchParams(search).values()).map((singleParam) =>
+      parseValue(singleParam, options)
+    );
   } else {
     const entries: string[][] = Array.from(
       new URLSearchParams(search).entries()
     );
     let returnObj = {};
     entries.forEach((entry: string[]) => {
-      returnObj[entry[0]] = options?.parseNumbers
-        ? parseToNumber(entry[1])
-        : entry[1];
+      returnObj[entry[0]] = parseValue(entry[1], options);
     });
     return returnObj;
   }

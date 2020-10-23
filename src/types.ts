@@ -1,5 +1,6 @@
 export interface GetOptions {
   parseNumbers?: boolean;
+  parseBooleans?: boolean;
 }
 
 export interface GetAllOptions extends GetOptions {
